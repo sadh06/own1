@@ -1,0 +1,24 @@
+---
+- step:
+    name: TRain
+    image: tensorflow/tensorflow:2.0.1-gpu-py3
+    command:
+      - pip install -r requirements.txt
+      - python gpenstream.py
+    inputs:
+      - name: my-raw-dataset
+        default: https://github.com/sadh06/own1/blob/main/penguins_size.csv
+- step:
+    name: Test
+    image: tensorflow/tensorflow:2.0.1-gpu-py3
+    command: python gstreamlitweb.py
+
+- pipeline:
+    name: penguin pipeline
+    nodes:
+      - name: TRain
+        type: execution
+        step: TRain
+      - name: Test
+        type: execution
+        step: Test
