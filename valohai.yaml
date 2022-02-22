@@ -23,5 +23,5 @@
       - name: Test
         type: execution
         step: Test
-   edges:
+    edges:
       - [penguins_clfn.pkl, Test.inputs.pic-file]
