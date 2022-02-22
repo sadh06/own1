@@ -12,7 +12,8 @@
     name: Test
     image: tensorflow/tensorflow:2.0.1-gpu-py3
     command: python gstreamlitweb.py
-
+    inputs:
+      - name: pic-file
 - pipeline:
     name: penguin pipeline
     nodes:
@@ -22,3 +23,5 @@
       - name: Test
         type: execution
         step: Test
+   edges:
+      - [penguins_clfn.pkl, Test.inputs.pic-file]
