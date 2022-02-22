@@ -1,9 +1,7 @@
 import numpy as np
 import pandas as pd
-import streamlit as st
 from sklearn.ensemble import RandomForestClassifier
 import pickle
-from PIL import Image
 
 penguins = pd.read_csv('penguins_size.csv')
 penguins.drop(penguins[penguins['body_mass_g'].isnull()].index,axis=0, inplace=True)
